@@ -36,11 +36,11 @@
             {% for event in events %}
                 <article class="event">
                     <img 
-                        src="{{ event.image_src }}" 
-                        alt="{{ event.image_alt }}" 
+                        src="{{ event.image.url }}" 
+                        alt="{{ event.title }}" 
                         class="cover-image"
                     >
-                    <div class="event-info">
+                    <div class="event-info">    
                         <time datetime="{{ event.datetime }}">{{ event.date_display }}</time>
                         <h3>{{ event.title }}</h3>
                         <div class="description">

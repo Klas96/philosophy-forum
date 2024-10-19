@@ -7,7 +7,7 @@ class Event(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=500)
     datetime = models.DateTimeField()
-
+    image = models.ImageField(upload_to='event_images/', null=True, blank=True)
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
