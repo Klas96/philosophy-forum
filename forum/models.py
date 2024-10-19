@@ -1,10 +1,12 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 
-# Default User model
-from django.contrib.auth.models import User
 
-# Create your models here.
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField(max_length=500)
+    datetime = models.DateTimeField()
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
@@ -70,10 +72,4 @@ class TopicView(models.Model):
 
     def __str__(self):
         return self.user_post.title
-
-    
-    
-
-
-
 

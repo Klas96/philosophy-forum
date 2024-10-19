@@ -1,4 +1,4 @@
-<h1 align="center"> MedicAid Forum </h1> <br>
+<h1 align="center"> Ömsesidig Förståelse Forum </h1> <br>
 
 
 <h3 align="center">
@@ -15,11 +15,11 @@
 
 ## Introduction
 
-MedicAid Forum is a reddit like community app. Here people can search previously discussed topics. Create new topic and provide answer to an existing topic. Upvote/Downvote any topic (similar to YouTube system). View activity history. It has an Integrated Blog. Built with Python/Django and 100% free to use.
+Ömsesidig Förståelse Forum is a reddit like community app. Here people can search previously discussed topics. Create new topic and provide answer to an existing topic. Upvote/Downvote any topic (similar to YouTube system). View activity history. It has an Integrated Blog. Built with Python/Django and 100% free to use.
 
 ## Features
 
-A few of the things you can do with MedicAid:
+A few of the things you can do with Ömsesidig Förståelse:
 
 * Signup as a Doctor or General User
 * Search and read previously discussed topics

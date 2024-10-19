@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'templates/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
     <meta name="robots" content="noindex">
     <meta name="description" content="Debatthuset är ett forum för öppna diskussioner och debatter i Göteborg.">
@@ -22,132 +22,18 @@
 
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="./images/graphics/icon.png">
+    <link rel="apple-touch-icon" href="{% static 'images/graphics/icon.png' %}">
 
     <meta name="theme-color" content="#101010">
 </head>
 <body>
     <header>
         <h1><img 
-                src="./images/graphics/debatthuset-logo.svg" 
+                src="{% static 'images/graphics/debatthuset-logo.svg' %}" 
                 alt="Debatthusets logotyp"
         ></h1>
     </header>
-    <section class="about">
-        <section class="find-place">
-            <h3>Hitta hit</h3>
-            <p>Vi håller till på <b>Barlastgatan 3</b> i Göteborg.</p>
-            <p>Närmaste hållplatser är Masthugget och Stigbergstorget.</p>
-            <p class="location-tools">
-                <!-- <a href="https://maps.app.goo.gl/nafmkGWTYQaGsnpZ7">Google Maps</a> -->
-                <a href="https://www.google.com/maps/search/?api=1&query=Barlastgatan+3%2C+G%C3%B6teborg">Google Maps</a>
-            </p>
-        </section>
-        <section class="organisations">
-            <h3>Verksamma organisationer</h3>
-            <p>I Debatthuset verkar följande organisationer:</p>
-            <ul class="organisations-list">
-                <li>
-                    <a href="https://debattnytt.se/" class="link-debattnytt"><img 
-                        src="./images/graphics/debattnytt-logo-alt.svg" 
-                        alt="DebattNytts logotyp"
-                    ></a>
-                </li>
-                <li>
-                    <a href="https://ungfilosof.se/" class="link-ung-filosof"><img 
-                        src="./images/graphics/ung-filosof-logo.svg" 
-                        alt="Ung Filosofs logotyp"
-                    ></a>
-                </li>
-            </ul>
-        </section>
-    </section>
-    <section class="activities">
-        <h2>Aktiviteter</h2>
-        <div class="events">
-            <article class="event">
-                <img 
-                    src="./images/events/vardagsfilosofi.jpg" 
-                    alt="Vardagsfilosofi" 
-                    class="cover-image"
-                >
-                <div class="event-info">
-                    <time datetime="2024-05-08T18:30">Tis 8 maj kl. 18:30</time>
-                    <h3>Vardagsfilosofi | Nära-döden-upplevelser</h3>
-                    <div class="description">
-                        <p>Debattnytt bjuder in till ett fritt och öppet filosofiskt samtal för alla som är intresserade. Den här veckan har vi temat »Nära-döden-upplevelser«.</p>
-                        <ul>
-                            <li>Vad är en nära-döden-upplevelse?</li>
-                            <li>Vad säger folk, som varit nära att dö, att de upplever?</li>
-                            <li>Vad säger de här upplevelserna om oss, som människor?</li>
-                        </ul>
-                        <p>Välkommen att ta en kopp kaffe från 18.30. Eventet börjar en halvtimme senare.</p>
-                    </div>
-                </div>
-            </article>
-            <article class="event">
-                <img 
-                    src="./images/events/oppna-samtal-nationalism.jpg" 
-                    alt="Vardagsfilosofi" 
-                    class="cover-image"
-                >
-                <div class="event-info">
-                    <time datetime="2024-05-10T18:30">Tor 10 maj kl. 18:30</time>
-                    <h3>Öppna samtal | Nationalism</h3>
-                    <div class="description">
-                        <p>Debattnytt bjuder in till ett fritt och öppet samtal för alla som är intresserade. Den här veckan har vi (lite med tanke på EU-valet 9 juni) temat »Nationalism«.</p>
-                        <ul>
-                            <li>Måste nationalism vara territoriell?</li>
-                            <li>Vad är det som är speciellt med en nationell identitet?</li>
-                            <li>Hur skulle ett helt nationalistiskt samhälle se ut?</li>
-                        </ul>
-                        <p>Diskussionen börjar kl. 19:00, men varmt välkomna kl 18:30 för kaffe och mingel!</p>
-                    </div>
-                </div>
-            </article>
-            <article class="event">
-                <img 
-                    src="./images/events/filosofika.jpg" 
-                    alt="Vardagsfilosofi" 
-                    class="cover-image"
-                >
-                <div class="event-info">
-                    <time datetime="2024-05-14T18:00">Tis 14 maj kl. 18:00</time>
-                    <h3>Filosofika med Ung Filosof - Tema: Gladiatorarenor</h3>
-                    <div class="description">
-                        <p>Välkommen till vårens filosofiska samtal! En möjlighet att släppa på förutfattade meningar och tillsammans utforska intressanta ämnen med frågor som verktyg. Det bjuds även på fika.</p>
-                        <p>Fikan arrangeras av Ung Filosof och leds av studenter inom olika områden. Den primära målgruppen är unga mellan 13-30, men ett ungdomligt sinne premieras över biologisk ålder.</p>
-                        <p>Fikan är gratis och kräver inga filosofiska förkunskaper, men underlättas av ett nyfiket sinne.</p>
-                        <p>Eventet arrangeras i samarbete med Sensus.</p>
-                        <p>Vi ses!</p>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-    <footer>
-        <div class="bottom-container">
-            <section class="contact-info">
-                <h3>Kontakt</h3>
-                <p>
-                    Debatthuset c/o Panarki AB<br>
-                    Barlastgatan 3<br>
-                    414 63 Göteborg
-                </p>
-                <p>
-                    <a href="mailto:info@debatthuset.se">info@debatthuset.se</a>
-                </p>
-            </section>
-            <section class="social-media">
-                <h3>Sociala medier</h3>
-                <p>
-                    <a href="https://www.facebook.com/debatthuset/">Facebook</a><br>
-                    <a href="#">Meetup</a><br>
-                    <a href="#">Telegram</a>
-                </p>
-            </section>
-        </div>
-    </footer>
-</body>
 
-</html>
+    {% block content %}
+    {% endblock content %}
+

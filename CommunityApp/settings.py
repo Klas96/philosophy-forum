@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+
 import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -149,7 +150,7 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
-DEFAULT_FROM_EMAIL = 'MedicAid Team <noreply@medicaid.org>'
+DEFAULT_FROM_EMAIL = 'Ömsesidig Förståelse Team <noreply@Ömsesidig Förståelse.org>'
 
 django_heroku.settings(locals())
 
@@ -158,11 +159,11 @@ django_heroku.settings(locals())
 # Admin Panel Configuration
 # # Admin Panel originally developed by  https://github.com/otto-torino
 BATON = {
-    'SITE_HEADER': 'MedicAid - Community App',
-    'SITE_TITLE': 'MedicAid - Community App',
+    'SITE_HEADER': 'Ömsesidig Förståelse - Community App',
+    'SITE_TITLE': 'Ömsesidig Förståelse - Community App',
     'INDEX_TITLE': 'Site administration',
     'SUPPORT_HREF': 'https://github.com/otto-torino/django-baton/issues',
-    'COPYRIGHT': 'copyright © 2020 MedicAid Community App', # noqa
+    'COPYRIGHT': 'copyright © 2020 Ömsesidig Förståelse Community App', # noqa
     'POWERED_BY': '<a href="https://github.com/mahmud-sajib">Mahmud Sajib</a>', 
     'CONFIRM_UNSAVED_CHANGES': True,
     'SHOW_MULTIPART_UPLOADING': True,

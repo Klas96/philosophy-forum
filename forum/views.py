@@ -1,31 +1,23 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from .models import *
-from django.db.models import Count, Q
-from django.contrib.auth.decorators import login_required
 # importing messages
 from django.contrib import messages
-
-# Model Forms.
-from .forms import UserPostForm, AnswerForm
+from django.contrib.auth.decorators import login_required
+from django.db.models import Count, Q
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
 # String module
 from django.template.loader import render_to_string
 
+# Model Forms.
+from .forms import AnswerForm, UserPostForm
+from .models import *
+
+
 # Create your views here.
-def index(request):
-    # Get all user posts
-    user_posts = UserPost.objects.all().order_by('-date_created')
-    
-    # Get latest blog posts
-    latest_blogs = BlogPost.objects.order_by('-timestamp')[:5]
-    
-    # Get most viewed topics
-    most_viewed_topics = UserPost.objects.annotate(view_count=Count('topicview')).order_by('-view_count')[:5]
+def index(request):    
+    events = Event.objects.all()
     
     context = {
-        'user_posts': user_posts,
-        'latest_blogs': latest_blogs,
-        'most_viewed_topics': most_viewed_topics,
+        'events': events,
     }
     
     return render(request, 'index.html', context)

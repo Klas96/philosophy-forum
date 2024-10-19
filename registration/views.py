@@ -1,14 +1,15 @@
-from django.shortcuts import render, redirect
 # importing messages
 from django.contrib import messages
 # import authentication related stuffs
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import User
+from django.shortcuts import redirect, render
 
 from forum.models import Author
 
-from .forms import UserRegisterForm, UserProfileForm, UserUpdateForm, ProfileUpdateForm
+from .forms import (ProfileUpdateForm, UserProfileForm, UserRegisterForm,
+                    UserUpdateForm)
 
 # Create your views here.
 
