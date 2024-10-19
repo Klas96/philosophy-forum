@@ -35,13 +35,15 @@
         <div class="events">
             {% for event in events %}
                 <article class="event">
-                    <img 
-                        src="{{ event.image.url }}" 
-                        alt="{{ event.title }}" 
-                        class="cover-image"
-                    >
+                    <a href="{% url 'event-detail' event.id %}">
+                        <img 
+                            src="{{ event.image.url }}" 
+                            alt="{{ event.title }}" 
+                            class="cover-image"
+                        >
+                    </a>
                     <div class="event-info">    
-                        <time datetime="{{ event.datetime }}">{{ event.date_display }}</time>
+                        <time datetime="{{ event.datetime }}">{{ event.datetime|date:"Y-m-d H:i" }}</time>
                         <h3>{{ event.title }}</h3>
                         <div class="description">
                             {{ event.description|safe }}

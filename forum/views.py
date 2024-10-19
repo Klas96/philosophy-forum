@@ -193,3 +193,7 @@ def blogDetailView(request, slug):
     }
 
     return render(request, 'blog-detail.html', context)
+
+def event_detail(request, id):
+    event = get_object_or_404(Event, id=id)
+    return render(request, 'event_detail.html', {'event': event})

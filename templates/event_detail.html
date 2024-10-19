@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <article class="event-detail">
+        <header class="event-header">
+            <h1 class="event-title">{{ event.title }}</h1>
+            <time datetime="{{ event.datetime }}" class="event-datetime">{{ event.datetime|date:"F j, Y \a\t g:i A" }}</time>
+        </header>
+        
+        <div class="event-content">
+            <div class="event-image-container">
+                <img src="{{ event.image.url }}" alt="{{ event.title }}" class="event-image">
+            </div>
+            <div class="event-info">
+                <div class="event-description">
+                    {{ event.description|safe }}
+                </div>
+                
+                {% if event.location %}
+                <section class="event-location">
+                    <h2 class="info-title"><i class="fas fa-map-marker-alt"></i> Plats</h2>
+                    <p>{{ event.location }}</p>
+                </section>
+                {% endif %}
+                
+                {% if event.organizer %}
+                <section class="event-organizer">
+                    <h2 class="info-title"><i class="fas fa-user"></i> Arrangör</h2>
+                    <p>{{ event.organizer }}</p>
+                </section>
+                {% endif %}
+            </div>
+        </div>
+    </article>
+{% endblock content %}
