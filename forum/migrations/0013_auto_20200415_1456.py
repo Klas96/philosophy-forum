@@ -15,21 +15,29 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='answer',
             name='ratedUsers',
-            field=models.ManyToManyField(blank=True, related_name='ratedUsersAnswer', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(
+                blank=True,
+                related_name='ratedUsersAnswer',
+                to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='userpost',
             name='dislikes',
-            field=models.IntegerField(default=0),
+            field=models.IntegerField(
+                default=0),
         ),
         migrations.AddField(
             model_name='userpost',
             name='likes',
-            field=models.IntegerField(default=0),
+            field=models.IntegerField(
+                default=0),
         ),
         migrations.AddField(
             model_name='userpost',
             name='ratedUsers',
-            field=models.ManyToManyField(blank=True, related_name='ratedUsersPost', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(
+                blank=True,
+                related_name='ratedUsersPost',
+                to=settings.AUTH_USER_MODEL),
         ),
     ]

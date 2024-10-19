@@ -14,6 +14,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='userpost',
             name='author',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='forum.Author'),
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to='forum.Author'),
         ),
     ]

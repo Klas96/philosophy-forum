@@ -13,11 +13,17 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='author',
             name='email',
-            field=models.EmailField(max_length=200, null=True),
+            field=models.EmailField(
+                max_length=200,
+                null=True),
         ),
         migrations.AlterField(
             model_name='author',
             name='profile_pic',
-            field=models.ImageField(blank=True, default='pro_pic.png', null=True, upload_to=''),
+            field=models.ImageField(
+                blank=True,
+                default='pro_pic.png',
+                null=True,
+                upload_to=''),
         ),
     ]

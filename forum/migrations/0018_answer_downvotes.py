@@ -15,6 +15,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='answer',
             name='downvotes',
-            field=models.ManyToManyField(blank=True, related_name='downvotes', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(
+                blank=True,
+                related_name='downvotes',
+                to=settings.AUTH_USER_MODEL),
         ),
     ]

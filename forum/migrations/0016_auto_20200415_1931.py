@@ -14,6 +14,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='answer',
             name='user_post',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='userposts', to='forum.UserPost'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name='userposts',
+                to='forum.UserPost'),
         ),
     ]

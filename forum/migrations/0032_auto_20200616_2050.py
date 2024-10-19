@@ -17,6 +17,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='author',
             name='phonenumber',
-            field=models.CharField(max_length=10, null=True, verbose_name='phone number'),
+            field=models.CharField(
+                max_length=10,
+                null=True,
+                verbose_name='phone number'),
         ),
     ]

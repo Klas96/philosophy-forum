@@ -13,10 +13,12 @@ def create_profile(sender, instance, created, **kwargs):
             print("Profile Created")
 
 # Save profile signal
+
+
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, created, **kwargs):
     if not instance.is_superuser:
-        if created == True:
+        if created:
             pass
         else:
             instance.author.save()

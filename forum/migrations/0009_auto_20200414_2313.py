@@ -19,11 +19,17 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='answer',
             name='downvote',
-            field=models.ManyToManyField(blank=True, related_name='downvotes', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(
+                blank=True,
+                related_name='downvotes',
+                to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='answer',
             name='upvote',
-            field=models.ManyToManyField(blank=True, related_name='upvotes', to=settings.AUTH_USER_MODEL),
+            field=models.ManyToManyField(
+                blank=True,
+                related_name='upvotes',
+                to=settings.AUTH_USER_MODEL),
         ),
     ]

@@ -8,13 +8,16 @@ class Event(models.Model):
     description = models.TextField(max_length=500)
     datetime = models.DateTimeField()
 
+
 class Author(models.Model):
-    user = models.OneToOneField(User, on_delete = models.CASCADE)
-    profile_pic = models.ImageField(default="pro_pic.png", null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_pic = models.ImageField(
+        default="pro_pic.png", null=True, blank=True)
     is_doctor = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username
+
 
 class UserPost(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
@@ -28,32 +31,35 @@ class UserPost(models.Model):
     def get_absolute_url(self):
         return reverse('topic-detail', kwargs={
             'pk': self.pk
-    })
+        })
 
-    # Use this method as a property 
+    # Use this method as a property
     @property
     def answer_count(self):
         return Answer.objects.filter(user_post=self).count()
-    
-    # Use this method as a property 
+
+    # Use this method as a property
     @property
     def topic_view_count(self):
         return TopicView.objects.filter(user_post=self).count()
 
+
 class Answer(models.Model):
     user_post = models.ForeignKey(UserPost, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=500)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     upvotes = models.ManyToManyField(User, blank=True, related_name='upvotes')
-    downvotes = models.ManyToManyField(User, blank=True, related_name='downvotes')
+    downvotes = models.ManyToManyField(
+        User, blank=True, related_name='downvotes')
 
     def __str__(self):
         return self.user_post.title
-    
+
     @property
     def upvotes_count(self):
         return Answer.objects.filter(user=self).count()
+
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=100)
@@ -68,8 +74,7 @@ class BlogPost(models.Model):
 
 class TopicView(models.Model):
     user_post = models.ForeignKey(UserPost, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user_post.title
-

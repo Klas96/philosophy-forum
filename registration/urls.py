@@ -11,12 +11,25 @@ urlpatterns = [
     path('user-profile/', views.profileView, name='profile'),
 
     # send users to a page to reset their password
-    path('password-reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
-    # the page shown after a user has been emailed a link to reset their password
-    path('password-reset-request/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path(
+        'password-reset/',
+        auth_views.PasswordResetView.as_view(),
+        name='password_reset'),
+    # the page shown after a user has been emailed a link to reset their
+    # password
+    path(
+        'password-reset-request/',
+        auth_views.PasswordResetDoneView.as_view(),
+        name='password_reset_done'),
     # presents a form for entering a new password
-    path('reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path(
+        'reset-confirm/<uidb64>/<token>/',
+        auth_views.PasswordResetConfirmView.as_view(),
+        name='password_reset_confirm'),
     # show users password successfully changed message
-    path('reset-done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+    path(
+        'reset-done/',
+        auth_views.PasswordResetCompleteView.as_view(),
+        name='password_reset_complete'),
 
 ]

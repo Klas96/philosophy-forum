@@ -13,6 +13,9 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='author',
             name='is_doctor',
-            field=models.BooleanField(blank=True, null=True, verbose_name='I am a Doctor'),
+            field=models.BooleanField(
+                blank=True,
+                null=True,
+                verbose_name='I am a Doctor'),
         ),
     ]

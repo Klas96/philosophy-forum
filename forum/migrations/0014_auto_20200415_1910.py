@@ -11,20 +11,8 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RemoveField(
-            model_name='answer',
-            name='dislikes',
-        ),
-        migrations.RemoveField(
-            model_name='answer',
-            name='likes',
-        ),
-        migrations.RemoveField(
-            model_name='answer',
-            name='ratedUsers',
-        ),
-        migrations.AddField(
-            model_name='answer',
-            name='upvotes',
-            field=models.ManyToManyField(blank=True, related_name='upvotes', to='forum.Author'),
-        ),
-    ]
+            model_name='answer', name='dislikes', ), migrations.RemoveField(
+            model_name='answer', name='likes', ), migrations.RemoveField(
+                model_name='answer', name='ratedUsers', ), migrations.AddField(
+                    model_name='answer', name='upvotes', field=models.ManyToManyField(
+                        blank=True, related_name='upvotes', to='forum.Author'), ), ]

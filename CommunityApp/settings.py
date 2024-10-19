@@ -141,7 +141,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Location that holds user-uploaded files.
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
-# URL that handles the media files served from MEDIA_ROOT. 
+# URL that handles the media files served from MEDIA_ROOT.
 MEDIA_URL = '/images/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -155,7 +155,6 @@ DEFAULT_FROM_EMAIL = 'Ömsesidig Förståelse Team <noreply@Ömsesidig Förståe
 django_heroku.settings(locals())
 
 
-
 # Admin Panel Configuration
 # # Admin Panel originally developed by  https://github.com/otto-torino
 BATON = {
@@ -163,17 +162,17 @@ BATON = {
     'SITE_TITLE': 'Ömsesidig Förståelse - Community App',
     'INDEX_TITLE': 'Site administration',
     'SUPPORT_HREF': 'https://github.com/otto-torino/django-baton/issues',
-    'COPYRIGHT': 'copyright © 2020 Ömsesidig Förståelse Community App', # noqa
-    'POWERED_BY': '<a href="https://github.com/mahmud-sajib">Mahmud Sajib</a>', 
+    'COPYRIGHT': 'copyright © 2020 Ömsesidig Förståelse Community App',  # noqa
+    'POWERED_BY': '<a href="https://github.com/mahmud-sajib">Mahmud Sajib</a>',
     'CONFIRM_UNSAVED_CHANGES': True,
     'SHOW_MULTIPART_UPLOADING': True,
     'ENABLE_IMAGES_PREVIEW': True,
     'CHANGELIST_FILTERS_IN_MODAL': True,
     'MENU_ALWAYS_COLLAPSED': False,
     'MENU': (
-        { 'type': 'free', 'label': 'Dashboard', 'icon': 'fa fa-address-book', 'url': 'https://dj-forum.herokuapp.com/admin/', 'perms': ('flatpages.add_flatpage', 'auth.change_user') 
+        {'type': 'free', 'label': 'Dashboard', 'icon': 'fa fa-address-book', 'url': 'https://dj-forum.herokuapp.com/admin/', 'perms': ('flatpages.add_flatpage', 'auth.change_user')
         },
-        { 'type': 'free', 'label': 'Site Home', 'icon': 'fa fa-home', 'url': 'https://dj-forum.herokuapp.com/', 'perms': ('flatpages.add_flatpage', 'auth.change_user') 
+        {'type': 'free', 'label': 'Site Home', 'icon': 'fa fa-home', 'url': 'https://dj-forum.herokuapp.com/', 'perms': ('flatpages.add_flatpage', 'auth.change_user')
         },
         {
             'type': 'app',
@@ -193,5 +192,3 @@ BATON = {
         },
     )
 }
-
-
