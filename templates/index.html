@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<header>
+    <h1><img 
+            src="{% static 'images/graphics/debatthuset-logo.svg' %}" 
+            alt="Debatthusets logotyp"
+    ></h1>
+</header>
+<section class="about">
+    <section class="find-place">
+        <h3>Hitta hit</h3>
+        <p>Vi håller till på <b>Barlastgatan 3</b> i Göteborg.</p>
+        <p>Närmaste hållplatser är Masthugget och Stigbergstorget.</p>
+        <p class="location-tools">
+            <a href="https://www.google.com/maps/search/?api=1&query=Barlastgatan+3%2C+G%C3%B6teborg">Google Maps</a>
+        </p>
+    </section>
+    <section class="organisations">
+        <h3>Verksamma organisationer</h3>
+        <p>I Debatthuset verkar följande organisationer:</p>
+        <ul class="organisations-list">
+            <li>
+                <a href="https://debattnytt.se/" class="link-debattnytt"><img 
+                    src="{% static 'images/graphics/debattnytt-logo-alt.svg' %}" 
+                    alt="DebattNytts logotyp"
+                ></a>
+            </li>
+            <li>
+                <a href="https://ungfilosof.se/" class="link-ung-filosof"><img 
+                    src="{% static 'images/graphics/ung-filosof-logo.svg' %}" 
+                    alt="Ung Filosofs logotyp"
+                ></a>
+            </li>
+        </ul>
+    </section>
+</section>
+<section class="activities">
+    <h2>Aktiviteter</h2>
+    <div class="events">
+        {% for event in events %}
+        <article class="event">
+            <img 
+                src="{% static event.image_url %}" 
+                alt="{{ event.title }}" 
+                class="cover-image"
+            >
+            <div class="event-info">
+                <time datetime="{{ event.datetime|date:'c' }}">{{ event.datetime|date:"D j M" }} kl. {{ event.datetime|time:"H:i" }}</time>
+                <h3>{{ event.title }}</h3>
+                <div class="description">
+                    {{ event.description|safe }}
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}
+
+{% block footer %}
+<footer>
+    <div class="bottom-container">
+        <section class="contact-info">
+            <h3>Kontakt</h3>
+            <p>
+                Debatthuset c/o Panarki AB<br>
+                Barlastgatan 3<br>
+                414 63 Göteborg
+            </p>
+            <p>
+                <a href="mailto:info@debatthuset.se">info@debatthuset.se</a>
+            </p>
+        </section>
+        <section class="social-media">
+            <h3>Sociala medier</h3>
+            <p>
+                <a href="https://www.facebook.com/debatthuset/">Facebook</a><br>
+                <a href="#">Meetup</a><br>
+                <a href="#">Telegram</a>
+            </p>
+        </section>
+    </div>
+</footer>
+{% endblock footer %}

@@ -12,6 +12,23 @@ from .forms import UserPostForm, AnswerForm
 from django.template.loader import render_to_string
 
 # Create your views here.
+def index(request):
+    # Get all user posts
+    user_posts = UserPost.objects.all().order_by('-date_created')
+    
+    # Get latest blog posts
+    latest_blogs = BlogPost.objects.order_by('-timestamp')[:5]
+    
+    # Get most viewed topics
+    most_viewed_topics = UserPost.objects.annotate(view_count=Count('topicview')).order_by('-view_count')[:5]
+    
+    context = {
+        'user_posts': user_posts,
+        'latest_blogs': latest_blogs,
+        'most_viewed_topics': most_viewed_topics,
+    }
+    
+    return render(request, 'index.html', context)
 
 def home(request):
     user_posts = UserPost.objects.all()
