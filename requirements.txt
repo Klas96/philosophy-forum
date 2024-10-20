@@ -74,3 +74,13 @@ virtualenv
 zipp
 gunicorn
 django-heroku
+baton
+distro
+duplicity
+gyp
+louis
+macaroonbakery
+python-debian
+pymacaroons
+systemd-python
+wadllib
