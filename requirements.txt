@@ -83,3 +83,4 @@ python-debian
 pymacaroons
 systemd-python
 wadllib
+watchdog==2.3.0
