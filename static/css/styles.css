@@ -122,10 +122,11 @@ header h1 img {
 }
 
 .activities h2 {
-    border-bottom: 1px solid #d0d0d0;
-    line-height: 1.2;
-    margin: 0 .75rem .5rem .75rem;
-    text-align: center;
+    font-size: 1.5rem; /* Example size */
+    text-align: center; /* Example alignment */
+    margin: 0.75rem 0; /* Example margin */
+    border-bottom: 1px solid #d0d0d0; /* Example border */
+    padding-bottom: 0.5rem; /* Space between text and border */
 }
 
 .events {
@@ -163,8 +164,11 @@ header h1 img {
 }
 
 .event h3 {
-    font-size: 1.15rem;
-    margin-bottom: .25rem;
+    font-size: 1.5rem; /* Match the size of "Aktiviteter" */
+    text-align: center; /* Center the text */
+    margin: 0.75rem 0; /* Match the margin */
+    border-bottom: 1px solid #d0d0d0; /* Add a similar border */
+    padding-bottom: 0.5rem; /* Space between text and border */
 }
 
 .event p,
@@ -190,6 +194,60 @@ header h1 img {
     height: auto;
     display: block;
     margin: 0 auto;
+}
+
+.event-info {
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.event-description {
+    margin-bottom: 20px;
+}
+
+.event-location, .event-organizer {
+    margin-bottom: 20px;
+}
+
+.info-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.event-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.event-header {
+    text-align: center;
+    margin-bottom: 20px;
+    display: block; /* Ensure block layout */
+}
+
+.event-title {
+    font-size: 2em;
+    margin: 0;
+    display: block; /* Ensure block layout */
+}
+
+.event-datetime-container {
+    margin-top: 5px;
+    display: block; /* Ensure block layout */
+}
+
+.event-datetime {
+    font-size: 1em;
+    color: #666;
+}
+
+.event-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 footer {
