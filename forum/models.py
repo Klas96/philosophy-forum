@@ -8,12 +8,13 @@ class Event(models.Model):
     description = models.TextField(max_length=500)
     datetime = models.DateTimeField()
     image = models.ImageField(upload_to='event_images/', null=True, blank=True)
+    organizer = models.CharField(max_length=200, null=True, blank=True)
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_pic = models.ImageField(
         default="pro_pic.png", null=True, blank=True)
-    is_doctor = models.BooleanField(default=False)
+    is_member = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username

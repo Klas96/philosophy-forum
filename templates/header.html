@@ -28,10 +28,16 @@
 </head>
 <body>
     <header>
-        <h1><img 
-                src="{% static 'images/graphics/debatthuset-logo.svg' %}" 
-                alt="Debatthusets logotyp"
-        ></h1>
+        <div class="header-content">
+            <h1>
+                <a href="{% url 'home' %}">
+                    <img 
+                        src="{% static 'images/graphics/debatthuset-logo.svg' %}" 
+                        alt="Debatthusets logotyp"
+                    >
+                </a>
+            </h1>
+        </div>
     </header>
 
     {% block content %}

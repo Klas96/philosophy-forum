@@ -19,7 +19,7 @@ class UserRegisterForm(UserCreationForm):
 class UserProfileForm(ModelForm):
     class Meta:
         model = Author
-        fields = ['is_doctor']
+        fields = ['is_member']
 
 
 """Utilizing both forms to let user's update their account's information"""

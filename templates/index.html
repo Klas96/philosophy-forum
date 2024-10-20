@@ -43,8 +43,8 @@
                         >
                     </a>
                     <div class="event-info">    
-                        <time datetime="{{ event.datetime }}">{{ event.datetime|date:"Y-m-d H:i" }}</time>
                         <h3>{{ event.title }}</h3>
+                        <time datetime="{{ event.datetime }}">{{ event.datetime|date:"Y-m-d H:i" }}</time>
                         <div class="description">
                             {{ event.description|safe }}
                         </div>

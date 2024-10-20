@@ -42,7 +42,7 @@
                                 <p class="dx-comment-info">
                                     <span class="dx-comment-name">{{ answer.user|capfirst }}</span>
 
-                                    {% if answer.user.author.is_doctor %}
+                                    {% if answer.user.author.is_member %}
                                     <span class="dx-comment-profession">
                                         <img src="{% static 'images/badge-doctor.png' %}" width="45px;" alt="">
                                         <span class="label-doctor">Certified Doctor</span>
