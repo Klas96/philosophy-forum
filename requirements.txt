@@ -77,7 +77,6 @@ django-heroku
 baton
 distro
 duplicity
-gyp
 louis
 macaroonbakery
 python-debian
