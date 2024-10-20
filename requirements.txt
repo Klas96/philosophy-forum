@@ -61,7 +61,6 @@ poetry==1.8.2
 poetry-core==1.9.0
 poetry-plugin-export==1.6.0
 protobuf==3.12.4
-psycopg==3.2.3
 ptyprocess==0.7.0
 pycairo==1.20.1
 pycodestyle==2.12.1
@@ -103,3 +102,4 @@ wadllib==1.3.6
 xdg==5
 xkit==0.0.0
 zipp==1.0.0
+psycopg2-binary==2.9.7
