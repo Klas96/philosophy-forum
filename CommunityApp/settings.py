@@ -162,8 +162,7 @@ BATON = {
     'SITE_TITLE': 'Ömsesidig Förståelse - Community App',
     'INDEX_TITLE': 'Site administration',
     'SUPPORT_HREF': 'https://github.com/otto-torino/django-baton/issues',
-    'COPYRIGHT': 'copyright © 2020 Ömsesidig Förståelse Community App',  # noqa
-    'POWERED_BY': '<a href="https://github.com/mahmud-sajib">Mahmud Sajib</a>',
+    'POWERED_BY': '<a href="https://github.com/klas96">Klas Holmgren</a>',
     'CONFIRM_UNSAVED_CHANGES': True,
     'SHOW_MULTIPART_UPLOADING': True,
     'ENABLE_IMAGES_PREVIEW': True,
