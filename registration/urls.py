@@ -3,12 +3,16 @@ from django.contrib.auth import views as auth_views
 from django.urls import path
 
 from . import views
+from django.contrib.auth import views as auth_views
+from .views import registerView, loginView, logoutView, profileView
+
+app_name = 'registration'
 
 urlpatterns = [
-    path('register/', views.registerView, name='register'),
-    path('login/', views.loginView, name='login'),
-    path('logout/', views.logoutView, name='logout'),
-    path('user-profile/', views.profileView, name='profile'),
+    path('register/', registerView, name='register'),
+    path('login/', loginView, name='login'),
+    path('logout/', logoutView, name='logout'),
+    path('user-profile/', profileView, name='profile'),
 
     # send users to a page to reset their password
     path(

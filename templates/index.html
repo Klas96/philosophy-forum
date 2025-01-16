@@ -9,25 +9,25 @@
         </section>
     </section>
     <section class="activities">
-        <h2>Aktiviteter</h2>
+        <h2>Händelser</h2>
         <div class="events">
             {% for event in events %}
                 <article class="event">
-                    <a href="{% url 'event-detail' event.id %}">
+                    <a href="{% url 'forum:event-detail' event.id %}">
                         <img 
                             src="{% static event.image.url %}" 
                             alt="{{ event.title }}" 
                             class="cover-image"
                         >
                     </a>
-                    <div class="event-info">    
-                        <h3>{{ event.title }}</h3>
-                        <time datetime="{{ event.datetime }}">{{ event.datetime|date:"Y-m-d H:i" }}</time>
-                        <div class="description">
-                            {{ event.description|safe }}
-                        </div>
-                    </div>
                 </article>
+                <div class="event-info">    
+                    <h3>{{ event.title }}</h3>
+                    <time datetime="{{ event.datetime }}">{{ event.datetime|date:"Y-m-d H:i" }}</time>
+                    <div class="description">
+                        {{ event.description|safe }}
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </section>

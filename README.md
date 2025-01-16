@@ -21,7 +21,7 @@
 
 A few of the things you can do with Ömsesidig Förståelse:
 
-* Signup as a Doctor or General User
+* Signup as a user
 * Search and read previously discussed topics
 * Create a new topic
 * Provide answer to an existing topic

@@ -18,10 +18,9 @@ from .forms import (ProfileUpdateForm, UserProfileForm, UserRegisterForm,
 
 def registerView(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('forum:home')
 
     if request.method == 'POST':
-        # fill the form with requested data
         reg_form = UserRegisterForm(request.POST)
         pro_form = UserProfileForm(request.POST)
 
@@ -31,11 +30,10 @@ def registerView(request):
             pro_form.user = user
             pro_form.save()
 
-            # show success message
             messages.success(
                 request,
-                f"Congrats! Your account was created successfully. Please login to continue.")
-            return redirect('login')
+                "Congrats! Your account was created successfully. Please login to continue.")
+            return redirect('registration:login')
     else:
         reg_form = UserRegisterForm()
         pro_form = UserProfileForm()
@@ -53,7 +51,7 @@ def registerView(request):
 def loginView(request):
     # restrict login page for logged in user
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('forum:home')
     else:
         if request.method == 'POST':
             # get username
@@ -65,7 +63,7 @@ def loginView(request):
             # if user exists log them in
             if user is not None:
                 login(request, user)
-                redirect_url = request.GET.get('next', 'home')
+                redirect_url = request.GET.get('next', 'forum:home')
                 return redirect(redirect_url)
             else:
                 # show error message
@@ -77,16 +75,16 @@ def loginView(request):
 # Logout view
 
 
-@login_required(login_url='login')
+@login_required(login_url='registration:login')
 def logoutView(request):
     # call logout method
     logout(request)
-    return redirect('login')
+    return redirect('registration:login')
 
 # Profile view
 
 
-@login_required(login_url='login')
+@login_required(login_url='registration:login')
 def profileView(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
@@ -97,7 +95,7 @@ def profileView(request):
             profile_form.save()
             messages.success(
                 request, f"Your profile has been updated successfully!")
-            return redirect('profile')
+            return redirect('registration:profile')
     else:
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(instance=request.user.author)
@@ -107,3 +105,31 @@ def profileView(request):
         'profile_form': profile_form
     }
     return render(request, 'registration/profile.html', context)
+
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('forum:home')  # Redirect to a success page.
+        else:
+            messages.error(request, 'Invalid username or password.')
+    return render(request, 'registration/login.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('forum:home')
+
+def register_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        email = request.POST['email']
+        user = User.objects.create_user(username=username, password=password, email=email)
+        user.save()
+        login(request, user)
+        return redirect('forum:home')
+    return render(request, 'registration/register.html')

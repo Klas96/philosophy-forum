@@ -4,10 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Count, Q
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-# String module
-from django.template.loader import render_to_string
 
-# Model Forms.
 from .forms import AnswerForm, UserPostForm
 from .models import *
 
