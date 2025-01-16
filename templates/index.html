@@ -11,7 +11,7 @@
     <section class="activities">
         <h2>Händelser</h2>
         <div class="events">
-            {% for event in events %}
+            {% for event in events|dictsortreversed:"id" %}
                 <article class="event">
                     <a href="{% url 'forum:event-detail' event.id %}">
                         <img 

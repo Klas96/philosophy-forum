@@ -5,7 +5,7 @@ from django.db.models import Count, Q
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .forms import AnswerForm, UserPostForm
+from .forms import AnswerForm, UserPostForm, EventForm
 from .models import *
 
 
@@ -194,3 +194,20 @@ def blogDetailView(request, slug):
 def event_detail(request, id):
     event = get_object_or_404(Event, id=id)
     return render(request, 'event_detail.html', {'event': event})
+
+@login_required(login_url='login')
+def add_event(request):
+    if request.method == 'POST':
+        form = EventForm(request.POST, request.FILES)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.organizer = request.user
+            event.save()
+            return redirect('forum:event-detail', id=event.id)  # Redirect to the event detail page
+        else:
+            # Debugging: Print form errors to console
+            print(form.errors)
+            messages.error(request, "There was an error with your submission. Please check the form and try again.")
+    else:
+        form = EventForm()
+    return render(request, 'forum/add_event.html', {'form': form})

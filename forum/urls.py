@@ -15,4 +15,5 @@ urlpatterns = [
     path('blog/', views.blogListView, name='blog'),
     path('article/<slug:slug>/', views.blogDetailView, name='article-detail'),
     path('event/<int:id>/', views.event_detail, name='event-detail'),
+    path('add-event/', views.add_event, name='add-event'),
 ]

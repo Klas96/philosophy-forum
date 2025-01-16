@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
     <meta name="robots" content="noindex">
-    <meta name="description" content="Debatthuset är ett forum för öppna diskussioner och debatter i Göteborg.">
+    <meta name="description" content="Hänt i Göteborg är ett forum för öppna diskussioner och debatter i Göteborg.">
 
     <meta property="og:description" content="Ett forum för öppna diskussioner och debatter i Göteborg.">
     <meta property="og:image" content="https://debatthuset.wierzba.se/prototyp1/images/graphics/open-graph-image.jpg">
-    <meta property="og:title" content="Debatthuset">
+    <meta property="og:title" content="Hänt i Göteborg">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://debatthuset.wierzba.se/prototyp1/">
 
@@ -40,6 +40,7 @@
             <div class="auth-links" style="position: absolute; top: 10px; right: 10px;">
                 {% if user.is_authenticated %}
                     <span>Välkommen, {{ user.username }}!</span>
+                    <a href="{% url 'forum:add-event' %}">Lägg till händelse</a>
                     <a href="{% url 'registration:logout' %}">Logga ut</a>
                 {% else %}
                     <a href="{% url 'registration:login' %}">Logga in</a>

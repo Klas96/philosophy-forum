@@ -34,3 +34,11 @@ class AnswerForm(forms.ModelForm):
     class Meta:
         model = Answer
         fields = ['content',]
+
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = ['title', 'description', 'image']
+        widgets = {
+            'image': forms.ClearableFileInput(attrs={'required': False}),
+        }

@@ -6,7 +6,7 @@ from django.urls import reverse
 class Event(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=500)
-    datetime = models.DateTimeField()
+    datetime = models.DateTimeField(null=True, blank=True)
     image = models.ImageField(upload_to='event_images/', null=True, blank=True)
     organizer = models.CharField(max_length=200, null=True, blank=True)
 
