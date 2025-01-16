@@ -15,7 +15,7 @@
                 <article class="event">
                     <a href="{% url 'event-detail' event.id %}">
                         <img 
-                            src="{{ event.image.url }}" 
+                            src="{% static event.image.url %}" 
                             alt="{{ event.title }}" 
                             class="cover-image"
                         >
