@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import AnswerForm, UserPostForm, EventForm
 from .models import *
+from django.contrib.auth.models import Group
 
 
 # Create your views here.
@@ -110,7 +111,7 @@ def userDashboard(request):
     }
     return render(request, 'user-dashboard.html', context)
 
-
+"""
 def searchView(request):
     queryset = UserPost.objects.all()
     search_query = request.GET.get('q')
@@ -133,7 +134,7 @@ def searchView(request):
     }
 
     return render(request, 'search-result.html', context)
-
+"""
 
 def upvote(request):
     answer = get_object_or_404(Answer, id=request.POST.get('answer_id'))
@@ -211,3 +212,11 @@ def add_event(request):
     else:
         form = EventForm()
     return render(request, 'forum/add_event.html', {'form': form})
+
+
+def groups(request):
+    all_groups = Group.objects.all()
+    context = {
+        'all_groups': all_groups
+    }
+    return render(request, 'forum/forum-groups.html', context)

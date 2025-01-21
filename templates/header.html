@@ -5,21 +5,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Debatthuset</title>
+    <title>Göteborgs</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
     <meta name="robots" content="noindex">
-    <meta name="description" content="Hänt i Göteborg är ett forum för öppna diskussioner och debatter i Göteborg.">
+    <meta name="description" content="Hänt i Göteborg är ett forum för händelser i Göteborg.">
 
-    <meta property="og:description" content="Ett forum för öppna diskussioner och debatter i Göteborg.">
-    <meta property="og:image" content="https://debatthuset.wierzba.se/prototyp1/images/graphics/open-graph-image.jpg">
+    <meta property="og:description" content="Ett forum för händelser i Göteborg.">
     <meta property="og:title" content="Hänt i Göteborg">
     <meta property="og:type" content="website">
+    <!-- TODO: Add url 
+    <meta property="og:image" content="https://debatthuset.wierzba.se/prototyp1/images/graphics/open-graph-image.jpg">
     <meta property="og:url" content="https://debatthuset.wierzba.se/prototyp1/">
-
+    -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{% static 'images/graphics/icon.png' %}">
@@ -39,8 +40,9 @@
             </h1>
             <div class="auth-links" style="position: absolute; top: 10px; right: 10px;">
                 {% if user.is_authenticated %}
-                    <span>Välkommen, {{ user.username }}!</span>
+                    <span>Välkommen, <a href="{% url 'registration:profile' %}">{{ user.username }}</a>!</span>
                     <a href="{% url 'forum:add-event' %}">Lägg till händelse</a>
+                    <a href="{% url 'forum:groups' %}">Grupper</a>
                     <a href="{% url 'registration:logout' %}">Logga ut</a>
                 {% else %}
                     <a href="{% url 'registration:login' %}">Logga in</a>

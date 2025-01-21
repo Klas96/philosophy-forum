@@ -8,7 +8,7 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('user-post/', views.userPost, name='user-post'),
     path('topic/<int:pk>/', views.postTopic, name='topic-detail'),
-    path('search-result/', views.searchView, name='search-result'),
+    #path('search-result/', views.searchView, name='search-result'),
     path('user-dashboard/', views.userDashboard, name='user-dashboard'),
     path('upvote/', views.upvote, name='upvote'),
     path('downvote/', views.downvote, name='downvote'),
@@ -16,4 +16,5 @@ urlpatterns = [
     path('article/<slug:slug>/', views.blogDetailView, name='article-detail'),
     path('event/<int:id>/', views.event_detail, name='event-detail'),
     path('add-event/', views.add_event, name='add-event'),
+    path('groups/', views.groups, name='groups'),
 ]

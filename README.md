@@ -42,3 +42,11 @@ A few of the things you can do with Ömsesidig Förståelse:
 6. Install Required Package `pip install -r requirements.txt`
 7. Migrate Database `python manage.py migrate`
 8. Finally Run The Project `python manage.py runserver`
+
+TODO:
+
+Virtuelt kontot.
+
+Sökbarhet och intärn komunikation.
+
+Grupper.
