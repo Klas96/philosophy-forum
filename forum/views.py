@@ -220,3 +220,23 @@ def groups(request):
         'all_groups': all_groups
     }
     return render(request, 'forum/forum-groups.html', context)
+
+
+def group_profile(request, group_id):
+    group = get_object_or_404(EventGroup, id=group_id)
+    group_events = group.events.all()
+    group_description = group.description
+    group_name = group.name
+    
+    # Assuming there is a User model with a ManyToMany relationship to Group
+    group_members = User.objects.filter(groups=group)
+    
+    context = {
+        'group': group,
+        'group_members': group_members,
+        'group_events': group_events,
+        'group_description': group_description,
+        'group_name': group_name
+    }
+
+    return render(request, 'forum/group-profile.html', context)

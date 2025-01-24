@@ -25,11 +25,11 @@
                                         {% for group in all_groups %}
                                         <tr>
                                             <th scope="row">
-                                                <a href="" class="dx-table-default-title">{{ group.name }}</a>
+                                                <a href="{% url 'forum:group-profile' group.id %}" class="dx-table-default-title">{{ group.name }}</a>
                                             </th>
                                             <td>{{ group.description }}</td>
-                                            <td>{{ group.member_count }}</td>
-                                            <td>{{ group.created_date }}</td>
+                                            <td>{{ group.members.count }}</td>
+                                            <td>{{ group.created_date|date:"F j, Y" }}</td>
                                         </tr>
                                         {% endfor %}
                                     </tbody>

@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
-
+from django.contrib.auth.models import Group
 
 class Event(models.Model):
     title = models.CharField(max_length=200)
@@ -79,3 +79,10 @@ class TopicView(models.Model):
 
     def __str__(self):
         return self.user_post.title
+
+
+class EventGroup(Group):
+    events = models.ManyToManyField(Event, blank=True)
+    description = models.TextField(max_length=500)
+    members = models.ManyToManyField(User, blank=True)
+    created_date = models.DateTimeField(auto_now_add=True)
