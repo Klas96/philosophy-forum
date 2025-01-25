@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.forms import User, UserCreationForm
 from django.forms import ModelForm
 
-from forum.models import Author
+from forum.models import EventUser
 
 
 # Creating custom User registration form utilizing the default one
@@ -18,7 +18,7 @@ class UserRegisterForm(UserCreationForm):
 
 class UserProfileForm(ModelForm):
     class Meta:
-        model = Author
+        model = EventUser
         fields = ['is_member']
 
 
@@ -37,5 +37,5 @@ class UserUpdateForm(ModelForm):
 
 class ProfileUpdateForm(ModelForm):
     class Meta:
-        model = Author
+        model = EventUser
         fields = ['profile_pic']

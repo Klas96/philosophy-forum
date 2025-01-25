@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import User
 from django.shortcuts import redirect, render
 
-from forum.models import Author
+from forum.models import EventUser
 
 from .forms import (ProfileUpdateForm, UserProfileForm, UserRegisterForm,
                     UserUpdateForm)
@@ -138,3 +138,6 @@ def profileView(request):
 
 def profile_view(request):
     return render(request, 'registration/profile.html')
+
+def connect_social_media(request):
+    return render(request, 'registration/connect_social_media.html')

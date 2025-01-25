@@ -12,13 +12,13 @@
                             <div class="dx-blog-post-box pt-30 pb-30">
                                 <h2 class="h4 mnt-5 mb-9">{{ group.name }}</h2>
                                 <p>{{ group.description }}</p>
-                                <p>Members: {{ group.members.count }}</p>
+                                <p>Medlemmar: {{ group.members.count }}</p>
                                 <ul>
                                     {% for member in group.members.all %}
                                         <li>{{ member }}</li>
                                     {% endfor %}
                                 </ul>
-                                <p>Created Date: {{ group.created_date|date:"F j, Y" }}</p>
+                                <p>Skapad: {{ group.created_date|date:"F j, Y" }}</p>
                                 <!-- Add more group details as needed -->
                             </div>
                         </div>

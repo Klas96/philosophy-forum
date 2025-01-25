@@ -21,24 +21,40 @@
                                 <div class="col-lg-4">
                                     <i class="fa fa-envelope-o" aria-hidden="true"></i> {{ user.email }}
                                 </div>
-                                <div class="col-lg-4"> <i class="fa fa-bolt" aria-hidden="true"></i>
-                                    {% if user.author.is_member %}
-                                    Certified Doctor
-                                    {% else %}
-                                    General User
-                                    {% endif %}
+                            </div>
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-lg-12">
+                                    <h5>Kontakt Metod</h5>
+                                    <ul>
+                                        <li><i class="fa fa-phone" aria-hidden="true"></i> {{ user.phone_number|default:"N/A" }}</li>
+                                        <li><i class="fa fa-envelope" aria-hidden="true"></i> {{ user.email|default:"N/A" }}</li>
+                                        <li><i class="fa fa-link" aria-hidden="true"></i> {{ user.urls|default:"N/A" }}</li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-lg-12">
-                                    <h5>User Groups</h5>
+                                    <h5>Grupper</h5>
                                     <ul>
                                         {% for group in user.groups.all %}
                                         <li>{{ group.name }}</li>
                                         {% empty %}
-                                        <li>No groups assigned</li>
+                                        <li>Inga grupper tilldelade</li>
                                         {% endfor %}
                                     </ul>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-lg-12">
+                                    <h5>Sociala Medier</h5>
+                                    <ul>
+                                        {% for connection in user.socialmediaconnection_set.all %}
+                                        <li>{{ connection.platform }} - Kopplad</li>
+                                        {% empty %}
+                                        <li>Inga sociala medier kopplade</li>
+                                        {% endfor %}
+                                    </ul>
+                                    <a href="{% url 'connect_social_media' %}" class="dx-btn dx-btn-sm">Koppla Social Media</a>
                                 </div>
                             </div>
                         </div>

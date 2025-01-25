@@ -45,8 +45,12 @@ A few of the things you can do with Ömsesidig Förståelse:
 
 TODO:
 
-Virtuelt kontot.
+Virtuelt kontor.
 
-Sökbarhet och intärn komunikation.
+Sökbarhet: Event, Group, User
 
-Grupper.
+intärn komunikation.
+
+Event organizer is group and a user.
+
+Conect FB and other Socialmedia

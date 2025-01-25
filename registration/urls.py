@@ -35,5 +35,6 @@ urlpatterns = [
         'reset-done/',
         auth_views.PasswordResetCompleteView.as_view(),
         name='password_reset_complete'),
+    path('connect-social-media/', views.connect_social_media, name='connect_social_media'),
 
 ]

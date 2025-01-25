@@ -8,20 +8,23 @@ class Event(models.Model):
     description = models.TextField(max_length=500)
     datetime = models.DateTimeField(null=True, blank=True)
     image = models.ImageField(upload_to='event_images/', null=True, blank=True)
-    organizer = models.CharField(max_length=200, null=True, blank=True)
+    organizer_user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name='organized_events')
+    organizer_group = models.ForeignKey(Group, on_delete=models.SET_NULL, null=True, blank=True, related_name='organized_events')
 
-class Author(models.Model):
+class EventUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_pic = models.ImageField(
         default="pro_pic.png", null=True, blank=True)
     is_member = models.BooleanField(default=False)
-
+    phone_number = models.TextField(max_length=500, null=True, blank=True)
+    email = models.EmailField(max_length=254, null=True, blank=True)
+    urls = models.TextField(max_length=500, null=True, blank=True)
     def __str__(self):
         return self.user.username
 
 
 class UserPost(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True)
+    author = models.ForeignKey(EventUser, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=200, null=True)
     description = models.TextField(max_length=500, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
@@ -75,7 +78,7 @@ class BlogPost(models.Model):
 
 class TopicView(models.Model):
     user_post = models.ForeignKey(UserPost, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(EventUser, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user_post.title
