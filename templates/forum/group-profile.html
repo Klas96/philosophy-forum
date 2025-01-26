@@ -15,11 +15,10 @@
                                 <p>Medlemmar: {{ group.members.count }}</p>
                                 <ul>
                                     {% for member in group.members.all %}
-                                        <li>{{ member }}</li>
+                                        <li>{{ member.username }}</li>
                                     {% endfor %}
                                 </ul>
                                 <p>Skapad: {{ group.created_date|date:"F j, Y" }}</p>
-                                <!-- Add more group details as needed -->
                             </div>
                         </div>
                     </div>

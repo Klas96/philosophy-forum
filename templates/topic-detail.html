@@ -36,24 +36,11 @@
 
                         <div>
                             <div class="dx-comment-img">
-                                <img src="{{ answer.user.author.profile_pic.url }}" alt="" class="rounded-circle">
+                                <img src="{{ answer.user.profile_pic.url }}" alt="" class="rounded-circle">
                             </div>
                             <div class="dx-comment-cont">
                                 <p class="dx-comment-info">
-                                    <span class="dx-comment-name">{{ answer.user|capfirst }}</span>
-
-                                    {% if answer.user.author.is_member %}
-                                    <span class="dx-comment-profession">
-                                        <img src="{% static 'images/badge-doctor.png' %}" width="45px;" alt="">
-                                        <span class="label-doctor">Certified Doctor</span>
-                                    </span>
-                                    {% else %}
-                                    <span class="dx-comment-profession">
-                                        <img src="{% static 'images/badge-user.png' %}" width="45px;" alt="">
-                                        <span class="label-user">General User</span>
-                                    </span>
-                                    {% endif %}
-
+                                    <span class="dx-comment-name">{{ answer.user.username|capfirst }}</span>
                                     <span class="dx-comment-date">
                                         answered at {{ answer.date_created }}
                                     </span>

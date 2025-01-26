@@ -49,30 +49,19 @@ def register_view(request):
 
 
 def login_view(request):
-    # restrict login page for logged in user
     if request.user.is_authenticated:
         return redirect('forum:home')
     else:
         if request.method == 'POST':
-            # get username
             username = request.POST.get('username')
-            # get password
             password = request.POST.get('password')
-
-            print(username, password)
-            # check authentication
             user = authenticate(request, username=username, password=password)
-            # if user exists log them in
             if user is not None:
                 login(request, user)
                 redirect_url = request.GET.get('next', 'forum:home')
                 return redirect(redirect_url)
             else:
-                # show error message
-                messages.error(
-                    request, f"Oops! Username or Password is invalid. Please try again.")
-                print("User is not authenticated")
-
+                messages.error(request, "Oops! Username or Password is invalid. Please try again.")
         return render(request, 'registration/login.html')
 
 # Logout view
@@ -91,7 +80,7 @@ def profileView(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileUpdateForm(
-            request.POST, request.FILES, instance=request.user.author)
+            request.POST, request.FILES, instance=request)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
@@ -100,7 +89,7 @@ def profileView(request):
             return redirect('registration:profile')
     else:
         user_form = UserUpdateForm(instance=request.user)
-        profile_form = ProfileUpdateForm(instance=request.user.author)
+        profile_form = ProfileUpdateForm(instance=request.user)
 
     context = {
         'user_form': user_form,

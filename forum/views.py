@@ -46,11 +46,10 @@ def userPost(request):
         if form.is_valid():
             title = request.POST.get('title')
             description = request.POST.get('description')
-            topic = UserPost.objects.create(
+            UserPost.objects.create(
                 title=title,
-                author=request.user.author,
+                author=request.user,
                 description=description)
-            topic.save()
             return redirect('home')
     else:
         form = UserPostForm()
@@ -98,7 +97,7 @@ def postTopic(request, pk):
 
 @login_required(login_url='login')
 def userDashboard(request):
-    topic_posted = request.user.author.userpost_set.all()
+    topic_posted = request.user.userpost_set.all()
     ans_posted = request.user.answer_set.all()
     topic_count = topic_posted.count()
     ans_count = ans_posted.count()

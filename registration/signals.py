@@ -8,18 +8,17 @@ from forum.models import EventUser
 # Create profile signal
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
-    if not instance.is_superuser:
-        if created:
-            print("Profile Created")
-
-# Save profile signal
+    if created and not instance.is_superuser:
+        EventUser.objects.create(user=instance)
+        print("Profile Created")
 
 
 @receiver(post_save, sender=User)
-def save_profile(sender, instance, created, **kwargs):
+def save_profile(sender, instance, **kwargs):
     if not instance.is_superuser:
-        if created:
-            pass
-        else:
-            instance.author.save()
+        try:
+            instance.eventuser.save()
             print("Profile Updated")
+        except EventUser.DoesNotExist:
+            # Handle the case where the EventUser does not exist
+            EventUser.objects.create(user=instance)
