@@ -3,32 +3,40 @@
 
 {% block content %}
     <section class="about">
+        <div class="text-box">
         <section class="find-place">
             <h3>Vad Händer i Göteborg</h3>
             <p>Intressanta händelser i Göteborg. Läs gärna och låt oss veta vad som händer :)</p>
         </section>
+    </div>
     </section>
     <section class="activities">
+        <div class="text-box">
         <h2>Händelser</h2>
         <div class="events">
             {% for event in events|dictsortreversed:"id" %}
-                <article class="event">
-                    <a href="{% url 'forum:event-detail' event.id %}">
-                        <img 
-                            src="{% static event.image.url %}" 
-                            alt="{{ event.title }}" 
-                            class="cover-image"
-                        >
-                    </a>
-                </article>
-                <div class="event-info">    
+            <div class="event-container">
+                <a href="{% url 'forum:event-detail' event.id %}">
                     <h3>{{ event.title }}</h3>
+                    <article class="event">
+                        {% if event.image %}
+                            <img 
+                                src="{{ event.image.url }}" 
+                                alt="{{ event.title }}" 
+                                class="cover-image"
+                            >
+                        {% endif %}
+                    </article>
+                </a>
+                <div class="event-info">    
                     <time datetime="{{ event.datetime }}">{{ event.datetime|date:"Y-m-d H:i" }}</time>
                     <div class="description">
                         {{ event.description|safe }}
                     </div>
                 </div>
+            </div>
             {% endfor %}
         </div>
+    </div>
     </section>
 {% endblock content %}

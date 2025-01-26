@@ -15,8 +15,12 @@ a:hover {
 }
 
 body {
-    background-color: #ededed;
-    color: #333;
+    background-image: url('/static/images/graphics/gbg-wallpaper.jpg'); /* Adjust the path as needed */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating */
+    background-attachment: fixed; /* Make the background fixed */
+    color: #333; /* Ensure text is readable */
     display: flex;
     flex-direction: column;
     font-family: "Helvetica Neue", Arial, sans-serif;
@@ -424,3 +428,19 @@ button:hover {
     padding: 60px 0;
 }
 
+.text-box {
+    background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    padding: 20px; /* Add padding inside the box */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px 0; /* Margin to separate from other elements */
+}
+
+
+.event-container {
+    background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+    padding: 20px; /* Add padding inside the box */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px 0; /* Margin to separate from other elements */
+}

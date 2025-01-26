@@ -168,7 +168,7 @@ def add_event(request):
         form = EventForm(request.POST, request.FILES)
         if form.is_valid():
             event = form.save(commit=False)
-            event.organizer = request.user
+            event.organizer_user = request.user
             event.save()
             return redirect('forum:event-detail', id=event.id)  # Redirect to the event detail page
         else:

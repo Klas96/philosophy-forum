@@ -42,3 +42,6 @@ class EventForm(forms.ModelForm):
         widgets = {
             'image': forms.ClearableFileInput(attrs={'required': False}),
         }
+        labels = {
+            'image': 'Image (optional)',
+        }

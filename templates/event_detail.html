@@ -13,9 +13,11 @@
         </header>
         
         <div class="event-content">
+            {% if event.image %}
             <div class="event-image-container">
                 <img src="{{ event.image.url }}" alt="{{ event.title }}" class="event-image">
             </div>
+            {% endif %}
             <div class="event-info">
                 <div class="event-description">
                     {{ event.description|safe }}
